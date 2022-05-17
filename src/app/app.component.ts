@@ -17,24 +17,9 @@ export class AppComponent {
   public tagBoxDataSource: any = {};
 
   constructor(readonly service: Service, readonly httpClient: HttpClient) {
-    // this.tagBoxDataSource = new DataSource({
-    //   store: new CustomStore({
-    //     loadMode: 'raw',
-    //     byKey: () => {
-    //       return of().toPromise();
-    //     },
-    //     load: (options: LoadOptions) => {
-    //       const { searchValue } = options;
-    //       return httpClient
-    //         .get(`http://localhost:3100/products?search${searchValue}`)
-    //         .toPromise();
-    //     },
-    //   }),
-    // });
     this.tagBoxDataSource = new CustomStore({
-      key: 'id',
-      byKey: () => {
-        return of().toPromise();
+      byKey: (key) => {
+        return Promise.resolve(key);
       },
       load: (options: LoadOptions) => {
         const { searchValue } = options;
