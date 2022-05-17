@@ -28,7 +28,9 @@ app.get("/products", function (req, res) {
   const { search } = req.query;
 
   const filteredData = search
-    ? mockData.filter((item) => item.includes(search))
+    ? mockData.filter((item) =>
+        item.toLowerCase().includes(search.toLocaleLowerCase())
+      )
     : mockData;
 
   res.json({
