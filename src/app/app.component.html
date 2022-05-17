@@ -1,0 +1,18 @@
+<div class="default-style">
+  <div class="dx-field">
+    <div class="dx-field-label">Add custom items</div>
+    <div class="dx-field-value">
+      <dx-tag-box
+        (onCustomItemCreating)="onCustomItemCreating($event)"
+        [acceptCustomValue]="true"
+        [dataSource]="tagBoxDataSource"
+        valueExpr="Id"
+        displayExpr="Name"
+        [searchEnabled]="true"
+        [showSelectionControls]="true"
+        selectAllMode="page"
+      >
+      </dx-tag-box>
+    </div>
+  </div>
+</div>
