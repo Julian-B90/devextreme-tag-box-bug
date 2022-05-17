@@ -3,16 +3,21 @@
     <div class="dx-field-label">Add custom items</div>
     <div class="dx-field-value">
       <dx-tag-box
-        (onCustomItemCreating)="onCustomItemCreating($event)"
-        [acceptCustomValue]="true"
-        [dataSource]="tagBoxDataSource"
-        valueExpr="Id"
-        displayExpr="Name"
-        [searchEnabled]="true"
-        [showSelectionControls]="true"
-        selectAllMode="page"
-      >
-      </dx-tag-box>
+          #tagBox
+          [dataSource]="tagBoxDataSource"
+          [showSelectionControls]="true"
+          selectAllMode="page"
+          [maxDisplayedTags]="5"
+          [showMultiTagOnly]="false"
+          [multiline]="false"
+          [acceptCustomValue]="true"
+          [searchEnabled]="true"
+          applyValueMode="useButtons"
+          placeholder="Suche"
+          [searchTimeout]="700"
+          (onSelectionChanged)="search($event)"
+          (onCustomItemCreating)="onCustomItemCreating($event)"
+        ></dx-tag-box>
     </div>
   </div>
 </div>
